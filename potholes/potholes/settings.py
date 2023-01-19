@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django REST framework 
     'rest_framework',
+    'django_extensions',
+    'potholes',
+    'predictions'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MODEL_PATH = 'potholes/potholes/models/v1.h5'
+DETECTION_CONFIG_PATH = 'potholes/potholes/config/detection_config.json'
+
+from .local_settings import *
