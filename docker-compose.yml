@@ -10,4 +10,4 @@ services:
       - ./ai_models/:/app/potholes/potholes/conf/ai_models
       - ./static/:/app/static
     ports:
-      - "8000:8000"
+      - "8002:8000"

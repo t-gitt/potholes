@@ -18,7 +18,6 @@ google-pasta==0.2.0
 grpcio==1.51.1
 h5py==3.7.0
 idna==3.4
-git+https://github.com/t-gitt/ImageAI@ea93c7de3075a71a94c4ff6439e92f90045076c6#egg=imageai
 joblib==1.2.0
 keras==2.11.0
 kiwisolver==1.4.4
@@ -61,3 +60,4 @@ typing_extensions==4.4.0
 urllib3==1.26.14
 Werkzeug==2.2.2
 wrapt==1.14.1
+git+https://github.com/t-gitt/ImageAI@c27a242bfd6e9f49bc6adb158947c01ca9678170#egg=imageai
