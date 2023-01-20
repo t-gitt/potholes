@@ -125,6 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'static/'
+STATICFILES_DIRS = [
+    "static/images/" ,
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -132,7 +137,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MODEL_PATH = 'potholes/potholes/conf/models/v1.h5'
+MODEL_PATH = 'potholes/potholes/conf/ai_models/v1.h5'
 DETECTION_CONFIG_PATH = 'potholes/potholes/conf/detection_config.json'
 
 from .local_settings import *

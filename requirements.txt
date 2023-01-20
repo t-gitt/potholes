@@ -7,6 +7,7 @@ charset-normalizer==3.0.1
 contourpy==1.0.7
 cycler==0.11.0
 Django==4.1.5
+django-extensions==3.2.1
 djangorestframework==3.14.0
 flatbuffers==23.1.4
 fonttools==4.38.0
@@ -17,6 +18,7 @@ google-pasta==0.2.0
 grpcio==1.51.1
 h5py==3.7.0
 idna==3.4
+git+https://github.com/t-gitt/ImageAI@ea93c7de3075a71a94c4ff6439e92f90045076c6#egg=imageai
 joblib==1.2.0
 keras==2.11.0
 kiwisolver==1.4.4
@@ -59,6 +61,3 @@ typing_extensions==4.4.0
 urllib3==1.26.14
 Werkzeug==2.2.2
 wrapt==1.14.1
-
-#imageai==2.1.5 
-git+https://github.com/t-gitt/ImageAI@d7a1529c2db48eb8bc0de79817f46c470a820c10

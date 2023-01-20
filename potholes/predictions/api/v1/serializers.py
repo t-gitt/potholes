@@ -5,14 +5,14 @@ from predictions.models import Case, CaseAttachment
 from predictions.services import PredictionService
 
 class CaseSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(required=True)
-    result_image = serializers.ReadOnlyField()
+    image = serializers.ImageField(required=True, write_only=True)
+    results = serializers.ReadOnlyField()
     class Meta:
         model = Case
         fields = [
             'uuid',
             'image',
-            'result_image'
+            'results'
         ]
 
     def create(self, validated_data):
@@ -31,8 +31,8 @@ class CaseSerializer(serializers.ModelSerializer):
         case.attachments.add(attachment)
         case.save()
 
-        prediction_service = PredictionService(case, settings.MODEL_PATH)
+        prediction_service = PredictionService(attachment, settings.MODEL_PATH)
 
-        prediction_service.handle(attachment.image.path)
+        prediction_service.handle()
 
         return case

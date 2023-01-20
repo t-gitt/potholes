@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: potholes_engine:latest
+    command: bash -c "python potholes/manage.py makemigrations && python potholes/manage.py migrate && python potholes/manage.py runserver 0.0.0.0:8000"
+    container_name: potholes_engine
+    volumes:
+      - ./ai_models/:/app/potholes/potholes/conf/ai_models
+      - ./static/:/app/static
+    ports:
+      - "8000:8000"
