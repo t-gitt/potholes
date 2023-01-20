@@ -132,7 +132,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MODEL_PATH = 'potholes/potholes/models/v1.h5'
-DETECTION_CONFIG_PATH = 'potholes/potholes/config/detection_config.json'
+MODEL_PATH = 'potholes/potholes/conf/models/v1.h5'
+DETECTION_CONFIG_PATH = 'potholes/potholes/conf/detection_config.json'
 
 from .local_settings import *

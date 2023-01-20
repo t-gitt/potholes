@@ -6,5 +6,5 @@ from .views import CaseViewSet
 namespace = 'v1'
 
 urlpatterns = [
-    re_path('case', CaseViewSet.as_view({'post':'create'}))
+    re_path('case', CaseViewSet.as_view({'post':'create', 'get':'list'}))
 ]

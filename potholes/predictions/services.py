@@ -2,6 +2,7 @@
 from datetime import datetime
 from django.conf import settings
 from imageai.Detection.Custom import CustomObjectDetection
+import os.path
 
 
 class PredictionService:
@@ -17,8 +18,9 @@ class PredictionService:
         detector.setModelPath(self.model_path)
         detector.setJsonPath(settings.DETECTION_CONFIG_PATH)
         detector.loadModel()
-        output_image_path = "processed-" + self.prediction_case.uuid + "-" + str(datetime.now()) + ".jpg"
-        breakpoint()
+        output_image_path = os.path.dirname(image_path) + "/" + str(self.prediction_case.uuid) + ".jpg"
+        print('image_path', image_path)
+        print('output_image_path', output_image_path)
         detections = detector.detectObjectsFromImage(minimum_percentage_probability=25,
                                                     input_image=image_path,
                                                     output_image_path=output_image_path)
