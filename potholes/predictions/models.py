@@ -24,7 +24,7 @@ class Case(models.Model):
 
     @property
     def results(self):
-        return [{'image': attachment.image.url.replace('images/', ''), 'result_image': attachment.result_image, 'detections': attachment.detections} for attachment in self.attachments.all()]
+        return [{'image': attachment.image.url, 'result_image': attachment.result_image, 'detections': attachment.detections} for attachment in self.attachments.all()]
 
     @property
     def image(self):

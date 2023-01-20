@@ -20,12 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6$xt0j_mr-97fr0__*n=olge-wi7p+hn%oa&cp9-f*@9n8s*b2'
+#SECRET_KEY = 'django-insecure-6$xt0j_mr-97fr0__*n=olge-wi7p+hn%oa&cp9-f*@9n8s*b2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['potholes-engine.taheralkamel.com', 'www.potholes-engine.taheralkamel.com']
 
 
 # Application definition
@@ -144,7 +145,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MODEL_PATH = 'potholes/potholes/conf/ai_models/v1.h5'
-DETECTION_CONFIG_PATH = 'potholes/potholes/conf/detection_config.json'
+MODEL_PATH = 'potholes/conf/ai_models/v1.h5'
+DETECTION_CONFIG_PATH = 'potholes/conf/detection_config.json'
 
 from .local_settings import *

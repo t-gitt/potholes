@@ -30,6 +30,6 @@ class PredictionService:
 
         attachment = self.attachment
         attachment.detections = detections
-        attachment.result_image = urljoin(os.path.dirname(attachment.image.url), "processed/" + str(attachment.uuid) + ".jpg").replace('images/', '')
+        attachment.result_image = urljoin(os.path.dirname(attachment.image.url), "processed/" + str(attachment.uuid) + ".jpg")
 
         attachment.save()
