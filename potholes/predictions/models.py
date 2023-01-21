@@ -22,7 +22,7 @@ class Case(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
-    status = models.CharField(max_length=254, blank=True, null=True, choices=status_choices)
+    status = models.IntegerField(default=1, choices=status_choices)
     to_review = models.BooleanField(default=False)
 
     def __str__(self):
