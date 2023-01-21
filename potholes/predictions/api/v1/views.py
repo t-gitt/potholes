@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticated  # <-- Here
 
 
 class CaseViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)             # <-- And here
-    authentication_classes = [TokenAuthentication,]
+    # to do
+    # permission_classes = (IsAuthenticated,)
+    # authentication_classes = [TokenAuthentication,]
     serializer_class = CaseSerializer
-    queryset = Case.objects.all()
+    queryset = Case.objects.all().exclude(status=Case.NO_POTHOLES)

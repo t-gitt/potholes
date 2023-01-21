@@ -1,14 +1,13 @@
-POST http://localhost:8000/prediction/api/v1/case-attachment HTTP/1.1
+POST http://localhost:8000/prediction/api/v1/case HTTP/1.1
 Host: localhost:8000
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
 
 // sends list of images
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="image"; filename="test.jpg"
 Content-Type: image/jpeg
 
-< ./test.jpg
+< ../potholes-model/potholes-test.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 # ------WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -20,6 +19,7 @@ Content-Type: image/jpeg
 
 ###
 
-GET http://localhost:8000/prediction/api/v1/case-attachment/ HTTP/1.1
+GET http://localhost:8000/prediction/api/v1/case/ HTTP/1.1
 Host: localhost:8000
 Content-Type: application/json
+

@@ -6,13 +6,22 @@ from predictions.services import PredictionService
 
 class CaseSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=True, write_only=True)
+    created_at = serializers.DateTimeField(read_only=True)
+    updated_at = serializers.DateTimeField(read_only=True)
+    status = serializers.SerializerMethodField(
+        'get_status',
+        allow_null=True,
+    )
     results = serializers.ReadOnlyField()
     class Meta:
         model = Case
         fields = [
             'uuid',
             'image',
-            'results'
+            'status',
+            'results',
+            'created_at',
+            'updated_at'
         ]
 
     def create(self, validated_data):
@@ -31,8 +40,24 @@ class CaseSerializer(serializers.ModelSerializer):
         case.attachments.add(attachment)
         case.save()
 
-        prediction_service = PredictionService(attachment, settings.MODEL_PATH)
+        try:
+            prediction_service = PredictionService(attachment, settings.MODEL_PATH)
+    
+            prediction_service.handle()
+        except APIException:
+            case.status = Case.NO_POTHOLES
+            case.save(update_fields=['status'])
+            return case
+        except Exception as exception:
+            case.status = Case.FAILED
+            case.save(update_fields=['status'])
+            raise APIException(f"Prediction Failed {exception}")
 
-        prediction_service.handle()
+        case.status = Case.PREDICTED
+        case.save(update_fields=['status'])
+
 
         return case
+    
+    def get_status(self, obj):
+        return obj.status_display

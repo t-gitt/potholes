@@ -4,6 +4,8 @@ from django.conf import settings
 from imageai.Detection.Custom import CustomObjectDetection
 from urllib.parse import urljoin
 import os.path
+from predictions.models import Case, CaseAttachment
+from .exceptions import NoHolesFoundException
 
 
 class PredictionService:
@@ -33,3 +35,6 @@ class PredictionService:
         attachment.result_image = urljoin(os.path.dirname(attachment.image.url), "processed/" + str(attachment.uuid) + ".jpg")
 
         attachment.save()
+        if len(detections) == 0:
+            raise NoHolesFoundException
+
