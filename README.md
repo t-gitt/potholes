@@ -1,4 +1,15 @@
-# potholes
+<h1 align="center">Potholes Engine</h1>
+<div align="center">
+Description
+</div>
+
+Related system components:
+1. Frontend: https://github.com/Qitu/DrStreet
+2. ESP32-CAM-Program: https://github.com/ba98/ESP32-CAM-Program
+3. Potholes Detection Model: https://github.com/ba98/potholes-model
+4. Notebook: https://colab.research.google.com/drive/1mY76NY9ychuCbh5SvEtZbluvKimAdKRn?usp=sharing
+
+------
 
 to setup backend:
 
