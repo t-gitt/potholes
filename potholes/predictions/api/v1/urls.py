@@ -1,10 +1,12 @@
-from django.contrib import admin
-from django.urls import path, re_path, include
-
+from django.urls import path, include
+from rest_framework import routers
 from .views import CaseViewSet
 
 namespace = 'v1'
 
+router = routers.DefaultRouter()
+router.register(r'case', CaseViewSet)
+
 urlpatterns = [
-    re_path('case', CaseViewSet.as_view({'post':'create', 'get':'list'}))
+    path('', include(router.urls)),
 ]
