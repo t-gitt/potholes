@@ -1,4 +1,4 @@
-<h1 align="center">Potholes Engine</h1>
+<h1 align="center">Potholes Platform</h1>
 <div align="center">
 Description
 </div>
